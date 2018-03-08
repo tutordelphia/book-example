@@ -83,8 +83,8 @@ class NewVisitorTest(LiveServerTestCase):
         self.wait_for(lambda: self.check_for_row_in_list_table('1: Buy peacock feathers'))
 
         # She notices that her list has a unique URL
-        eidth_list_url = self.browser.current_url
-        self.assertRegex(eidth_list_url, '/lists/.+')
+        edith_list_url = self.browser.current_url
+        self.assertRegex(edith_list_url, '/lists/.+')
         
         # Now a new user, Francis, comes along to the site.
 
@@ -105,7 +105,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: Buy milk')
+        self.wait_for(lambda: self.check_for_row_in_list_table('1: Buy milk'))
 
         # Francis gets his own unique URL
         francis_list_url = self.browser.current_url
